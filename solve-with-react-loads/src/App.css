@@ -39,6 +39,35 @@ form {
   max-width: 400px; 
   padding: 22px; 
 }
+.split-pane {
+  display: flex; 
+  flex-flow: row nowrap;  
+  min-height: 400px;  
+  padding: 12px; 
+}
+.split-pane>.list {
+  flex:  0 0 200px; 
+  border: solid 1px black; 
+  padding: 12px; 
+  display: flex; 
+  flex-flow: column nowrap; 
+}
+.list-item {
+  border: solid 1px black;
+  padding: 6px; 
+  margin: 3px; 
+}
+.list-item:hover {
+  cursor: pointer;
+}
+
+.list-item.selected {
+  background-color: #777; 
+}
+
+.split-pane>.body {
+  flex: 1 0 auto; 
+}
 
 input, button{
   margin: 12px; 

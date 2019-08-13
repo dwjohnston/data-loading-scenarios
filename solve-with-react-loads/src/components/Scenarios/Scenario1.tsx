@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { ScenarioPanel } from '../ScenarioPanel';
-import { SubmitForm, SubmitFormResponse, submitForm } from '../../services/services';
+import { SubmitForm, SubmitFormResponse, submitForm } from '../../services/scenario1';
 import {useLoads} from "react-loads"; 
 import { BooleanLiteralTypeAnnotation } from '@babel/types';
 
@@ -69,6 +69,7 @@ export const Scenario1: React.FunctionComponent<Scenario1Props> = (props) => {
         description="Submit a form and return those values with a random unique identifier."
     >
 
+        {!response && <Form onSubmit = {load} isLoading = {isPending}/> }
         {!response && <Form onSubmit = {load} isLoading = {isPending}/> }
         {isPending && "Loading"}
         {response && <Confirmation data = {response}/> }
