@@ -8,7 +8,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-loads": "^8.3.6",
-    "react-scripts": "3.0.1"
+    "react-scripts": "3.0.1", 
+    "demo-common": "file:../demo-common"
   },
   "scripts": {
     "start": "react-scripts start",

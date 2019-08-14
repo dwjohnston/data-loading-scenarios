@@ -35,7 +35,6 @@ export const ListItem: React.FunctionComponent<ListItemProps> = (props) => {
 }
 
 export const ItemDetails: React.FunctionComponent<ItemDetailsProps> = (props) => {
-
     const { id } = props;
     
     const fetchData = useCallback(() => fetchItem(id), [id]); 

@@ -43,7 +43,6 @@ const itemsResource = createResource({
 
 console.log(itemsResource); 
 export const ItemDetails: React.FunctionComponent<ItemDetailsProps> = (props) => {
-
     const { id } = props;
     
     //@ts-ignore  - Apparently useLoads isn't on the resource interface. 
