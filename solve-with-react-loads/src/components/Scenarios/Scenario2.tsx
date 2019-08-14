@@ -1,10 +1,8 @@
 
 import React, { useState, useCallback } from 'react';
 import { ScenarioPanel } from '../ScenarioPanel';
-import { SubmitForm, SubmitFormResponse, submitForm } from '../../services/scenario1';
-import { useLoads, createResource } from "react-loads";
-import { BooleanLiteralTypeAnnotation } from '@babel/types';
-import { fetchList, fetchItem } from '../../services/scenario2';
+import { useLoads,  } from "react-loads";
+import { fetchList, fetchItem } from 'demo-common';
 import _default from 'react-loads/ts/LoadsContext';
 
 
