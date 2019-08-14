@@ -1,7 +1,7 @@
 
 import React, { useState, useCallback } from 'react';
 
-import { fetchList, fetchItem } from '../../services/scenario2';
+import { fetchList, fetchItem, ItemDetails } from '../../services/scenario2';
 
 
 
@@ -11,12 +11,6 @@ export interface ListItemProps {
     isSelected: boolean;
     onSelect: (i: number) => void;
 }
-
-export interface ItemDetailsProps {
-    id: number;
-}
-
-
 export const ListItem: React.FunctionComponent<ListItemProps> = (props) => {
 
     const { id, name, isSelected, onSelect } = props;
@@ -26,4 +20,27 @@ export const ListItem: React.FunctionComponent<ListItemProps> = (props) => {
         onClick={() => onSelect(id)}
     >{id} {name} </div>
 }
+
+
+export interface ItemDetailsProps {
+    isLoading: boolean; 
+    item?: ItemDetails; 
+}
+
+export const ItemDetailsPanel: React.FunctionComponent<ItemDetailsProps> = (props) => {
+    const { isLoading, item,  } = props;
+    
+
+    return <div>
+        <p>{isLoading && "Loading..."}</p>
+        {item && <>
+            <p>{item.name}</p>
+            <p> {item.details}</p>
+        </>}
+    </div>
+
+}
+
+
+
 
