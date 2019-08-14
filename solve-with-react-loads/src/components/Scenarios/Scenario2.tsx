@@ -39,7 +39,8 @@ export const ItemDetails: React.FunctionComponent<ItemDetailsProps> = (props) =>
     
     const fetchData = useCallback(() => fetchItem(id), [id]); 
     const { response, load, isIdle, isResolved, isPending } = useLoads(fetchData, {
-        context: `${id}`
+        context: `${id}`, 
+       // loadPolicy: "cache-first", //see https://github.com/jxom/react-loads/issues/29
     }); 
  
     return <div>
