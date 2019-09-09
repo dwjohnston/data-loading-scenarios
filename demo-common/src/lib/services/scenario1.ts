@@ -19,7 +19,7 @@ export function submitForm(data: SubmitForm) : Promise<SubmitFormResponse> {
         setTimeout(() => {
             res({
                 ...data, 
-                id: Math.random()
+                id: Math.floor(Math.random() * 10000 )
             });  
         }, 3000);         
     }) as Promise<SubmitFormResponse>; 

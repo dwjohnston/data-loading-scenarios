@@ -9,7 +9,7 @@
     "noUnusedLocals": false,
     "noImplicitAny": true,
     "target": "es2015",
-    "module": "esnext",
+    "module": "commonjs",
     "strict": true,
     "jsx": "react",
     "lib": [

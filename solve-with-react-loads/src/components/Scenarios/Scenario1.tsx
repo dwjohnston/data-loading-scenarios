@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { ScenarioPanel } from '../ScenarioPanel';
 import {useLoads} from "react-loads"; 
-import {Form, Confirmation, submitForm} from "demo-common"; 
+import {Form, Confirmation, submitForm, Scenario1Generic} from "demo-common"; 
 
 export interface Scenario1Props {
 }
@@ -20,15 +20,13 @@ export const Scenario1: React.FunctionComponent<Scenario1Props> = (props) => {
         defer: true
     })
 
-    return <ScenarioPanel
+    return <Scenario1Generic
         description="Submit a form and return those values with a random unique identifier."
-    >
+        isLoading = {isPending}
+        isPending = {isIdle}
+        data = {response}
+        onSubmit = {submitFormCb}  
 
-        {!response && <Form onSubmit = {load} isLoading = {isPending}/> }
-        {!response && <Form onSubmit = {load} isLoading = {isPending}/> }
-        {isPending && "Loading"}
-        {response && <Confirmation data = {response}/> }
-
-    </ScenarioPanel>;
+    />
 }
 

@@ -5,7 +5,7 @@ import { SubmitForm, SubmitFormResponse, submitForm } from '../../services/scena
 
 export interface FormProps {
     onSubmit: (data: SubmitForm) => Promise<SubmitFormResponse> | any;
-    isLoading: boolean; 
+    isLoading: boolean;
 }
 
 
@@ -19,15 +19,16 @@ export const Form: React.FunctionComponent<FormProps> = (props) => {
 
 
 
-    return <form onSubmit = {(e) => {
-        e.preventDefault();  
+    return <form onSubmit={(e) => {
+        e.preventDefault();
         onSubmit({
-        firstName: name, 
-        lastName: lastName
-    })}} >
+            firstName: name,
+            lastName: lastName
+        })
+    }} >
         <input placeholder="First Name" onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateName(e.target.value)} />
         <input placeholder="Last Name" onChange={(e: React.ChangeEvent<HTMLInputElement>) => updateLastName(e.target.value)} />
-        <button type="submit" disabled= {isLoading}> Submit</button>
+        <button type="submit" disabled={isLoading}> Submit</button>
     </form>;
 
 }
@@ -48,5 +49,30 @@ export const Confirmation: React.FunctionComponent<ConfirmationProps> = (props) 
 }
 
 export interface Scenario1Props {
+
+    isPending: boolean; 
+    isLoading: boolean;
+    isError: boolean;
+    data: SubmitFormResponse;
+    onSubmit: (data: SubmitForm) => void;
+    description: string; 
 }
+
+
+
+export const Scenario1Generic: React.FunctionComponent<Scenario1Props> = (props) => {
+
+    const { data, isLoading, onSubmit, description } = props;
+
+    return <ScenarioPanel
+        description={description}
+    >
+
+        {!data && <Form onSubmit={onSubmit} isLoading={isLoading} />}
+        {isLoading && "Loading"}
+        {data && <Confirmation data={data} />}
+
+    </ScenarioPanel>;
+}
+
 

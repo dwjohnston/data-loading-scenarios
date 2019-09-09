@@ -1,5 +1,5 @@
 import { ApolloServer, gql } from 'apollo-server';
-import {SubmitForm, submitForm} from "demo-common"; 
+ import {SubmitForm, submitForm} from "demo-common"; 
 // This is a (sample) collection of books we'll be able to query
 // the GraphQL server for.  A more complete example might fetch
 // from an existing data source like a REST API or database.
@@ -26,10 +26,10 @@ const typeDefs = gql`
   type Person {
     firstName: String!
     lastName: String!
-    id: Number!
+    id: Int!
   }
 
-  type PersonCreateRequest {
+  input PersonCreateRequest {
     firstName: String!
     lastName: String!
   }
@@ -37,7 +37,11 @@ const typeDefs = gql`
   # The "Query" type is the root of all GraphQL queries.
   # (A "Mutation" type will be covered later on.)
   type Mutation  {
-    createPerson(p: PersonCreateRequest) : Person
+    createPerson(person: PersonCreateRequest!) : Person
+  }
+
+  type Query {
+    persons: [Person]
   }
 `;
 
@@ -45,11 +49,13 @@ const typeDefs = gql`
 // schema.  We'll retrieve books from the "books" array above.
 const resolvers = {
   Query: {
-    books: () => books,
   },
 
   Mutation: {
-    createPerson : (p: SubmitForm) => submitForm(p)
+    createPerson : (_, input: {person: SubmitForm}) => {
+      console.log(input.person);
+      return submitForm(input.person)
+    }
   }
 };
 
