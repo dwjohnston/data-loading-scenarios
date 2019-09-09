@@ -4,16 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon index.ts",
+    "test": "echo \"Error: no test specified\" && exit 1", 
+    "build": "tsc"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "nodemon": "^1.19.2",
+    "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   },
   "dependencies": {
     "apollo-server": "^2.8.1",
-    "graphql": "^14.4.2"
+    "graphql": "^14.4.2",
+    "demo-common": "file:../../demo-common"
   }
 }

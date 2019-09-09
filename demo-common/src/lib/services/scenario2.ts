@@ -35,7 +35,7 @@ export function fetchList() : Promise<ItemTitle[]> {
     return promise; 
 }
 
-const items : {
+export const items : {
     [i: number]: ItemDetails
 } =  {
     1:  {
